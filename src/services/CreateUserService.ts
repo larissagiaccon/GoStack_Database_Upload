@@ -1,8 +1,8 @@
 import { getRepository } from 'typeorm';
 import { hash } from 'bcryptjs';
 
-import AppError from '../errors/AppError';
-import User from "../models/User";
+import AppError from '@errors/AppError';
+import User from '@models/User';
 
 interface Request {
   name: string;
@@ -18,7 +18,7 @@ class CreateUserService {
       where: { email },
     });
 
-    if(checkUserExist) {
+    if (checkUserExist) {
       throw new AppError('Email address already used.');
     }
 
