@@ -16,6 +16,7 @@ class CreateAppoinmentService {
   constructor(
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
+
     @inject('AppointmentsRepository')
     private appointmentsRepository: IAppointmentsRepository,
   ) {}

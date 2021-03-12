@@ -1,5 +1,8 @@
 import { container } from 'tsyringe';
 
+import '@providersUsers/providers';
+import '@container/providers';
+
 import AppointmentsRepository from '@repositoriesAppointments/AppointmentsRepository';
 import IAppointmentsRepository from '@interfaceRepositoriesAppointments/IAppointmentsRepository';
 
