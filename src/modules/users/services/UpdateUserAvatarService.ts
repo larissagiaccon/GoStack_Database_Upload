@@ -2,8 +2,8 @@ import { inject, injectable } from 'tsyringe';
 
 import User from '@entitiesUsers/User';
 import AppError from '@errors/AppError';
-import IUsersRepository from '@interfaceRepositoriesUsers/IUsersRepository';
 import IStorageProvider from '@storageProvider/IStorageProvider';
+import IUsersRepository from '@interfaceRepositoriesUsers/IUsersRepository';
 
 interface IRequest {
   user_id: string;
@@ -11,7 +11,7 @@ interface IRequest {
 }
 
 @injectable()
-class UpdateUserAvatarService {
+export default class UpdateUserAvatarService {
   constructor(
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
@@ -40,5 +40,3 @@ class UpdateUserAvatarService {
     return user;
   }
 }
-
-export default UpdateUserAvatarService;

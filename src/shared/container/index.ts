@@ -9,12 +9,20 @@ import IAppointmentsRepository from '@interfaceRepositoriesAppointments/IAppoint
 import UsersRepository from '@repositoriesUsers/UsersRepository';
 import IUsersRepository from '@interfaceRepositoriesUsers/IUsersRepository';
 
-container.registerSingleton<IAppointmentsRepository>(
-  'AppointmentsRepository',
-  AppointmentsRepository,
-);
+import UserTokensRepository from '@repositoriesUsers/UserTokensRepository';
+import IUserTokensRepository from '@interfaceRepositoriesUsers/IUserTokensRepository';
 
 container.registerSingleton<IUsersRepository>(
   'UsersRepository',
   UsersRepository,
+);
+
+container.registerSingleton<IUserTokensRepository>(
+  'UserTokensRepository',
+  UserTokensRepository,
+);
+
+container.registerSingleton<IAppointmentsRepository>(
+  'AppointmentsRepository',
+  AppointmentsRepository,
 );

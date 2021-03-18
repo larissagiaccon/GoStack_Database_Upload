@@ -19,6 +19,16 @@
       "@storageProvider/*":                     ["shared/container/providers/StorageProvider/models/*"],
       "@diskStorageProvider/*":                 ["shared/container/providers/StorageProvider/implementations/*"],
 
+      "@dtosMailProvider/*":                    ["shared/container/providers/MailProvider/dtos/*"],
+      "@fakesMailProvider/*":                   ["shared/container/providers/MailProvider/fakes/*"],
+      "@mailProvider/*":                        ["shared/container/providers/MailProvider/models/*"],
+      "@etherealMailProvider/*":                ["shared/container/providers/MailProvider/implementations/*"],
+
+      "@dtosMailTemplateProvider/*":            ["shared/container/providers/MailTemplateProvider/dtos/*"],
+      "@fakesMailTemplateProvider/*":           ["shared/container/providers/MailTemplateProvider/fakes/*"],
+      "@mailTemplateProvider/*":                ["shared/container/providers/MailTemplateProvider/models/*"],
+      "@handlebarseMailTemplateProvider/*":     ["shared/container/providers/MailTemplateProvider/implementations/*"],
+
       "@dtosAppointments/*":                    ["modules/appointments/dtos/*"],
       "@servicesAppointments/*":                ["modules/appointments/services/*"],
       "@interfaceRepositoriesAppointments/*":   ["modules/appointments/repositories/*"],
