@@ -3,6 +3,7 @@ import { v4 as uuid } from 'uuid';
 import User from '@entitiesUsers/User';
 import ICreateUserDTO from '@dtosUsers/ICreateUserDTO';
 import IUsersRepository from '@interfaceRepositoriesUsers/IUsersRepository';
+import IFindAllProvidersDTO from '@providersUsers/dtos/IFindAllProvidersDTO';
 
 export default class FakeUsersRepository implements IUsersRepository {
   private users: User[] = [];
@@ -17,6 +18,18 @@ export default class FakeUsersRepository implements IUsersRepository {
     const findUser = this.users.find(user => user.email === email);
 
     return findUser;
+  }
+
+  public async findAllProviders({
+    except_user_id,
+  }: IFindAllProvidersDTO): Promise<User[]> {
+    let { users } = this;
+
+    if (except_user_id) {
+      users = this.users.filter(user => user.id !== except_user_id);
+    }
+
+    return users;
   }
 
   public async create(userData: ICreateUserDTO): Promise<User> {
