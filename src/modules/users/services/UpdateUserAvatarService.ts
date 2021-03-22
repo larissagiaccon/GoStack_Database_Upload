@@ -2,7 +2,7 @@ import { inject, injectable } from 'tsyringe';
 
 import User from '@entitiesUsers/User';
 import AppError from '@errors/AppError';
-import IStorageProvider from '@storageProvider/IStorageProvider';
+import IStorageProvider from '@modelsStorageProvider/IStorageProvider';
 import IUsersRepository from '@interfaceRepositoriesUsers/IUsersRepository';
 
 interface IRequest {

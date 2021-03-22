@@ -4,7 +4,7 @@ import { inject, injectable } from 'tsyringe';
 import authConfig from '@config/auth';
 import User from '@entitiesUsers/User';
 import AppError from '@errors/AppError';
-import IHashProvider from '@hashProvidersUsers/IHashProvider';
+import IHashProvider from '@modelsHashProvidersUsers/IHashProvider';
 import IUsersRepository from '@interfaceRepositoriesUsers/IUsersRepository';
 
 interface IRequest {

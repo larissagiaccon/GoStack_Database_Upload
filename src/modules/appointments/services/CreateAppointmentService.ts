@@ -1,9 +1,11 @@
 import { inject, injectable } from 'tsyringe';
-import { startOfHour, isBefore, getHours } from 'date-fns';
+import { startOfHour, isBefore, getHours, format } from 'date-fns';
 
 import AppError from '@errors/AppError';
 import Appointment from '@entitiesAppointments/Appointment';
 import IAppointmentsRepository from '@interfaceRepositoriesAppointments/IAppointmentsRepository';
+import INotificationsRepository from '@interfaceRepositoriesNotifications/INotificationsRepository';
+import ICacheProvider from '@modelsCacheProvider/ICacheProvider';
 
 interface IRequest {
   provider_id: string;
@@ -16,6 +18,12 @@ class CreateAppoinmentService {
   constructor(
     @inject('AppointmentsRepository')
     private appointmentsRepository: IAppointmentsRepository,
+
+    @inject('NotificationsRepository')
+    private notificationsRepository: INotificationsRepository,
+
+    @inject('CacheProvider')
+    private cacheProvider: ICacheProvider,
   ) {}
 
   public async execute({
@@ -50,6 +58,20 @@ class CreateAppoinmentService {
       user_id,
       date: appointmentDate,
     });
+
+    const dateFormatted = format(appointmentDate, "dd/MM/yyyy 'às' HH:mm'h'");
+
+    await this.notificationsRepository.create({
+      recipient_id: provider_id,
+      content: `Novo agendamento para dia ${dateFormatted}`,
+    });
+
+    await this.cacheProvider.invalidate(
+      `provider-appointments:${provider_id}:${format(
+        appointmentDate,
+        'yyyy-M-d',
+      )}`,
+    );
 
     return appointment;
   }

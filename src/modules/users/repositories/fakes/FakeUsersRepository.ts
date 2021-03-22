@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 import User from '@entitiesUsers/User';
 import ICreateUserDTO from '@dtosUsers/ICreateUserDTO';
 import IUsersRepository from '@interfaceRepositoriesUsers/IUsersRepository';
-import IFindAllProvidersDTO from '@providersUsers/dtos/IFindAllProvidersDTO';
+import IFindAllProvidersDTO from '@dtosUsers/IFindAllProvidersDTO';
 
 export default class FakeUsersRepository implements IUsersRepository {
   private users: User[] = [];
