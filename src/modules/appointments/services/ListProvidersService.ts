@@ -24,6 +24,8 @@ export default class ListProviderService {
       `providers-list:${user_id}`,
     );
 
+    // let users;
+
     if (!users) {
       users = await this.usersRepository.findAllProviders({
         except_user_id: user_id,
